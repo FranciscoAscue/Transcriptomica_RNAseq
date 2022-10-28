@@ -60,6 +60,10 @@ defaults:
       comments: true
       search: true
       sidebar: tags_sidebar
+      
+sidebars:
+- docs
+
 
 # these are defaults used for the frontmatter for these file types
 
