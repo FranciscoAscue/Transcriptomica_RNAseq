@@ -5,6 +5,14 @@ remote_theme: tomjoht/documentation-theme-jekyll
 back_to_top: true
 back_to_top_text: "Regresar al inicio"
 
+sidebars:
+- home_sidebar
+- mydoc_sidebar
+- product1_sidebar
+- product2_sidebar
+- other
+
+
 footer_content: "Repositorio mantenido por Francisco Ascue <a href=\"https://github.com/FranciscoAscue\">GitHub</a>"
 
 
