@@ -1,17 +1,62 @@
-## 2.Instalaciones del curso
-
-Antes de empezar con el curso instale los siguientes programas y paquetes, estos links son para el SO windows.
-
-#### FastQC: quality control for high throughput sequence data [_Descargar fastqc_](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/fastqc_v0.11.9.zip){: .btn-blue}
-
-#### Trimmomatic: A flexible read trimming tool for Illumina NGS data [_Link trimmomatic_](http://www.usadellab.org/cms/?page=trimmomatic){: .btn-green }  
-
-#### SRA Toolkit:The SRA Toolkit and SDK from NCBI [_Link sratoolkit_](https://ftp-trace.ncbi.nlm.nih.gov/sra/sdk/2.11.1/sratoolkit.2.11.1-win64.zip){: .btn-purple }
-
-### Instalacion de R y Rstudio para Windows.
+---
+layout: default
+title: Instalaciones y archivos del curso
+nav_order: 2
+---
 
 
-[Descargar R ](https://cran.r-project.org/src/base/R-4/R-4.1.1.tar.gz){: .btn } [Descargar Rstudio ](https://download1.rstudio.org/desktop/windows/RStudio-1.4.1717.exe){: .btn } 
+## Instalaciones del curso
+
+Antes de empezar con el curso instale los siguientes programas y paquetes, elija el SO operativo adecuado.
+
+## Tabla de contenidos
+{: .no_toc .text-delta }
+
+
+## Instalacion de R y Rstudio para Windows.
+
+
+[Descargar R ](https://cran.r-project.org/bin/windows/base/R-4.2.1-win.exe){: .btn } [Descargar Rstudio ](https://download1.rstudio.org/desktop/windows/RStudio-2022.07.2-576.exe){: .btn } 
+
+
+## Instalacion de R y Rstudio para Linux.
+
+### Install R in Linux
+
+Procure instalar la version 4 de R (cran-40), si tiene inconvenientes instalando esta version de R añada el repositorio de cran-40 con los siguientes pasos:
+
+```bash
+## GPG key ubuntu
+sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E298A3A825C0D65DFD57CBB651716619E084DAB9
+
+#Output
+#Executing: /tmp/apt-key-gpghome.cul0ddtmN1/gpg.1.sh --keyserver #!/usr/bin/env bashkeyserver.ubuntu.com --recv-keys E298A3A825C0D65DFD57CBB651716619E084DAB9
+#gpg: key 51716619E084DAB9: public key "Michael Rutter <marutter@gmail.com>" imported
+#gpg: Total number processed: 1
+#gpg:               imported: 1
+
+## agrere el repositorio segun la version de ubuntu que tenga en este ejemplo es para ubuntu 20 
+
+sudo add-apt-repository 'deb https://cloud.r-project.org/bin/linux/ubuntu focal-cran40/'
+
+#Output
+#...
+#Get:7 https://cloud.r-project.org/bin/linux/ubuntu focal-cran40/ InRelease [3622 B]                  
+#Get:8 https://cloud.r-project.org/bin/linux/ubuntu focal-cran40/ Packages [15.6 kB]
+#...
+
+## finalmente actulizar los repositorios e instalar R
+sudo apt update
+sudo apt install r-base
+```
+
+Si tiene la version de ubuntu 18, 20 o 22 elija entre los siguientes instaladores:
+
+[Descargar Rstudio Ubuntu 18+](https://download1.rstudio.org/desktop/bionic/amd64/rstudio-2022.07.2-576-amd64.deb){: .btn } 
+
+
+[Descargar Rstudio Ubuntu 22](https://download1.rstudio.org/desktop/jammy/amd64/rstudio-2022.07.2-576-amd64.deb){: .btn } 
+
 
 ## Instalaciones de paquetes para el análisis de RNASeq
 
@@ -25,12 +70,11 @@ install.packages("BiocManager")
 library(BiocManager)
 ```
 
+
 ```r
 ## Instalar los siguientes paquetes:
 
-BiocManager::install("Rbowtie2")
 BiocManager::install("Rsubread")
-BiocManager::install("Rsamtools")
 BiocManager::install("dplyr")
 BiocManager::install("org.At.tair.db")
 BiocManager::install("pheatmap")
