@@ -1,19 +1,68 @@
 title: Curso de transcriptomica
 remote_theme: tomjoht/documentation-theme-jekyll
 
-# Back to top link
-back_to_top: true
-back_to_top_text: "Regresar al inicio"
+exclude:
+  - _site
+  - _drafts/
+  - .idea/
+# these are the files and directories that jekyll will exclude from the build
 
-sidebars:
-- home_sidebar
-- mydoc_sidebar
-- product1_sidebar
-- product2_sidebar
-- other
+feedback_email: francisco.ascue131@gmail.com
+# used as a contact email for the Feedback link in the top navigation bar
+
+feedback_disable: true
+#feedback_text: "Need help?"
+#feedback_link: "http://helpy.io/"
+# change feedback link behaviour if you use a support ticketing system or something else
+
+highlighter: rouge
+# library used for syntax highlighting
+
+markdown: kramdown
+kramdown:
+ input: GFM
+ auto_ids: true
+ hard_wrap: false
+ syntax_highlighter: rouge
+# filter used to process markdown. note that kramdown differs from github-flavored markdown in some subtle ways
+
+collections:
+  tooltips:
+    output: false
+# collection declared here. this renders the content in _tooltips and processes it, but doesn't output it as actual files in the output.
+
+defaults:
+  -
+    scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: "page"
+      comments: true
+      search: true
+      sidebar: home_sidebar
+  -
+    scope:
+      path: ""
+      type: "tooltips"
+    values:
+      layout: "page"
+      comments: true
+      search: true
+      tooltip: true
+
+  -
+    scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+      comments: true
+      search: true
+      sidebar: tags_sidebar
+
+# these are defaults used for the frontmatter for these file types
 
 
-footer_content: "Repositorio mantenido por Francisco Ascue <a href=\"https://github.com/FranciscoAscue\">GitHub</a>"
-
-
-#color_scheme: "dark"
+description: "Intended as a documentation theme based on Jekyll for technical writers documenting software and other technical products, this theme has all the elements you would need to handle multiple products with both multi-level sidebar navigation, tags, and other documentation features."
+# the description is used in the feed.xml file
