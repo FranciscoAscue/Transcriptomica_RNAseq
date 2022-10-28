@@ -1,0 +1,11 @@
+title: Curso de transcriptomica
+remote_theme: tomjoht/documentation-theme-jekyll
+
+# Back to top link
+back_to_top: true
+back_to_top_text: "Regresar al inicio"
+
+footer_content: "Repositorio mantenido por Francisco Ascue <a href=\"https://github.com/FranciscoAscue\">GitHub</a>"
+
+
+#color_scheme: "dark"
