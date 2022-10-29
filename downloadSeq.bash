@@ -10,6 +10,3 @@ wget --load-cookies /tmp/cookies.txt "https://docs.google.com/uc?export=download
 
 wget --load-cookies /tmp/cookies.txt "https://docs.google.com/uc?export=download&confirm=$(wget --quiet --save-cookies /tmp/cookies.txt --keep-session-cookies --no-check-certificate 'https://docs.google.com/uc?export=download&id=1rdSBRmKbVE1vVrS_0gKn_Jtjxm9XjSie' -O- | sed -rn 's/.*confirm=([0-9A-Za-z_]+).*/\1\n/p')&id=1rdSBRmKbVE1vVrS_0gKn_Jtjxm9XjSie" -O final_counts.txt && rm -rf /tmp/cookies.txt
 wget --load-cookies /tmp/cookies.txt "https://docs.google.com/uc?export=download&confirm=$(wget --quiet --save-cookies /tmp/cookies.txt --keep-session-cookies --no-check-certificate 'https://docs.google.com/uc?export=download&id=1ogX24QXctuEz_7qStqm2b2oYvqtLQ3ie' -O- | sed -rn 's/.*confirm=([0-9A-Za-z_]+).*/\1\n/p')&id=1ogX24QXctuEz_7qStqm2b2oYvqtLQ3ie" -O final_counts.txt.summary && rm -rf /tmp/cookies.txt
-
-
-https://drive.google.com/file/d/1ogX24QXctuEz_7qStqm2b2oYvqtLQ3ie/view?usp=sharing

@@ -5,12 +5,16 @@ nav_order: 2
 ---
 
 
-## Instalaciones del curso
+# Instalaciones del curso
+{: .no_toc }
 
 Antes de empezar con el curso instale los siguientes programas y paquetes, elija el SO operativo adecuado.
 
 ## Tabla de contenidos
 {: .no_toc .text-delta }
+
+1. TOC
+{:toc}
 
 
 ## Instalacion de R y Rstudio para Windows.
