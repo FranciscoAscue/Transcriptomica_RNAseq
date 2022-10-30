@@ -5,7 +5,7 @@ nav_order: 2
 ---
 
 
-# Instalaciones del curso
+# Instalaciones y archivos del curso
 {: .no_toc }
 
 Antes de empezar con el curso instale los siguientes programas y paquetes, elija el SO operativo adecuado.
@@ -25,7 +25,7 @@ Antes de empezar con el curso instale los siguientes programas y paquetes, elija
 
 ## Instalacion de R y Rstudio para Linux.
 
-### Install R in Linux
+### Instalar R in Linux
 
 Procure instalar la version 4 de R (cran-40), si tiene inconvenientes instalando esta version de R añada el repositorio de cran-40 con los siguientes pasos:
 
@@ -55,6 +55,8 @@ sudo apt install r-base
 ```
 
 Si tiene la version de ubuntu 18, 20 o 22 elija entre los siguientes instaladores:
+
+### Instalar Rstudio en Linux
 
 [Descargar Rstudio Ubuntu 18+](https://download1.rstudio.org/desktop/bionic/amd64/rstudio-2022.07.2-576-amd64.deb){: .btn } 
 
@@ -96,3 +98,35 @@ BiocManager::install("biomaRt")
 BiocManager::install("genefilter")
 
 ```  
+
+## Descarga de archivos para el curso
+
+Para la creacion del directorio de trabajo y descarga de los archivos debe ejecutar el siguiente comando en la terminal Linux:
+
+```bash
+curl -s https://raw.githubusercontent.com/FranciscoAscue/Transcriptomica_conebiol/master/downloadSeq.bash | bash 
+```
+
+Este script debe crear el siguiente arbol de directorios para la organizaacion de los archivos:
+
+```
+
+saccharomyces_rnaSeq
+├── data
+│   ├── ERR2929683_sample0.1.fastq.gz
+│   ├── ERR2929684_sample0.1.fastq.gz
+│   ├── ERR2929685_sample0.1.fastq.gz
+│   ├── ERR2929686_sample0.1.fastq.gz
+│   ├── ERR2929687_sample0.1.fastq.gz
+│   ├── ERR2929688_sample0.1.fastq.gz
+│   ├── GCF_000146045.2_R64_genomic.fna.gz
+│   └── GCF_000146045.2_R64_genomic.gtf.gz
+├── results
+│   ├── counts
+│   │   ├── final_counts.txt
+│   │   └── final_counts.txt.summary
+│   ├── filter
+│   └── map
+└── scripts
+
+```
