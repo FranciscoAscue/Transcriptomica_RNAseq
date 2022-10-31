@@ -8,5 +8,5 @@ back_to_top_text: "Regresar al inicio"
 footer_content: "Repositorio mantenido por Francisco Ascue <a href=\"https://github.com/FranciscoAscue\">GitHub</a>"
 
 
-color_scheme: "dark"
+#color_scheme: "dark"
 #logo: "/img/logo50.png"
