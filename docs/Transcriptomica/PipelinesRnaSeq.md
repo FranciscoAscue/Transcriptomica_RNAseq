@@ -1,5 +1,11 @@
 ---
-layout: default
+layout: page
 title: Pipelines para analisis de RNA-Seq
-nav_order: 6
+menubar: dosc_menu
+show_sidebar: false
+toc: true
 ---
+
+# Test 
+
+
