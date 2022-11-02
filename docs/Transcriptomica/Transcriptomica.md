@@ -1,9 +1,9 @@
 ---
 layout: default
 title: Procesamiento de datos RNA-Seq
-nav_order: 6
+nav_order: 5
 has_children: true
 permalink: /docs/Transcriptomica
 ---
 
-## Pasos 
+## WorkFlow para datos RNA-Seq  

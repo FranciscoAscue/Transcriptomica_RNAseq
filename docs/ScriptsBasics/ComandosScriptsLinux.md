@@ -1,8 +1,9 @@
 ---
-layout: default
+layout: page
 title: Comandos y scripts en Linux
-nav_order: 3
+parent: Comandos y scritps Basicos
 ---
+
 
 # Comandos y scripts en Linux
 

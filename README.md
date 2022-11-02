@@ -1,11 +1,7 @@
----
-layout: default
-title: Introduccion al Curso
-nav_order: 1
----
+## Repositorio para el curso de transcriptomica 
+## CENEBIOL (Congreso Nacional de estudiantes de Biolgia)
 
-## Curso de transcriptomica
+Curso Precongreso organizado por el XXII CONEBIOL 
+Ponente: Francisco Ascue Orosco
 
 
-
-<img align="center" width="60%" src="img/Banner.jpeg">

@@ -82,7 +82,7 @@ library(BiocManager)
 
 BiocManager::install("Rsubread")
 BiocManager::install("dplyr")
-BiocManager::install("org.At.tair.db")
+BiocManager::install("org.Sc.sgd.db")
 BiocManager::install("pheatmap")
 BiocManager::install("GO.db")
 BiocManager::install("DESeq2")
@@ -99,6 +99,24 @@ BiocManager::install("genefilter")
 
 ```  
 
+## Instalacion de programas de linux para el curso
+
+Para el analsis de datos en Linux se instalaran los siguiente programas:
+
+```bash
+sudo apt-get install ncbi-entrez-direct bowtie2 sortmerna subread samtools rna-star trim-galore fastqc seqtk
+```
+
+`ncbi-entrez-direct` : Descarga de secuencias desde el NCBI 
+`bowtie2`   : Alineador de datos NGS fastq
+`sortmerna` : Alineador de ARN ribosomales 
+`subread`   : Conteo de secuencias alineadas  
+`samtools`  : Manejo de secuencias alineadas SAM/BAM
+`rna-star`  : Alineador de secuencias para RNA-Seq
+`trim-galore`: Filtrado de secuencias fastq de baja calidad
+`fastqc`    : Calculo de calidad de secuencias fastq
+`setqk`     : Manejo de secuencias fastq y fasta
+
 ## Descarga de archivos para el curso
 
 Para la creacion del directorio de trabajo y descarga de los archivos debe ejecutar el siguiente comando en la terminal Linux:
@@ -107,7 +125,7 @@ Para la creacion del directorio de trabajo y descarga de los archivos debe ejecu
 curl -s https://raw.githubusercontent.com/FranciscoAscue/Transcriptomica_conebiol/master/downloadSeq.bash | bash 
 ```
 
-Este script debe crear el siguiente arbol de directorios para la organizaacion de los archivos:
+Este script debe crear el siguiente arbol de directorios para la organizacion de los archivos:
 
 ```
 
