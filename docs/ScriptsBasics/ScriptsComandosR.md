@@ -92,19 +92,6 @@ Vamos a ver l ayuda de la función `log()` con `?log`.
 
 ![](https://github.com/u-genoma/BioinfinvRepro/raw/master/Unidad3/log_help.png)
 
-**Ejercicio**: crea una variable con el logaritmo base 10 de 50 y súmalo a otra variable cuyo valor sea igual a 5.
-
-Ahora vamos a ver con detalle el resto de objetos de R en estas [notas sobre los tipos de objetos de R básico](Tipos_objetos_baseR.Rmd).  Abajo te dejamos un resumen:
-
-Vectores:
-
-* vectores `c(5, 4, 6, 7)`, `5:9`
-* Acceso a elementos de un vector `[]`
-
-**Ejercicio:** suma el número 2 a todos los números entre 1 y 150.
-
-**Ejercicio** ¿cuántos números son mayores a 20
-en el vector -13432:234?
 
 Matrices
 
@@ -221,13 +208,6 @@ paste(10, "elefantes se columpiaban sobre la tela de una araña")
 ```
 
 
-**Ejercicio**
-
-* Escribe un for loop para que divida 35 entre 1:10 e imprima el resultado en la consola.
-
-* Modifica el loop anterior para que haga las divisiones solo para los números nones (con un comando, NO con `c(1,3,...)`). Pista: `next`.
-
-* Modifica el loop anterior para que los resultados de correr todo el loop se guarden en una df de dos columnas, la primera debe tener el texto "resultado para x" (donde x es cada uno de los elementos del loop) y la segunda el resultado correspondiente a cada elemento del loop. Pista: el primer paso es crear un vector *fuera* del loop. Ejemplo:
 
 ```{r}
 elefantes<-character(0)
@@ -237,16 +217,6 @@ for (i in 2:10){
 elefantes
 
 ```
-
-**Ejercicio**  
-
-Abre en RStudio el script `Prac_Uni3/mantel/bin/1.IBR_testing.r`. Este script realiza un análisis de [aislamiento por resistencia](http://www.bioone.org/doi/abs/10.1554/05-321.1) con Fst calculadas con ddRAD en *Berberis alpina*.
-
-Lee el código del script y determina:
-
-* ¿qué hacen los dos for loops del script?
-* ¿qué paquetes necesitas para correr el script?
-* ¿qué archivos necesitas para correr el script?
 
 
 
@@ -414,21 +384,6 @@ Para crear el reporte o archivo de salida, debes correr `render()`, dar click en
 Cuando se renderea un archivo .Rmd, también se crea un archivo html. Este es un archivo HTML que contiene el código y los output resultantes, que puede abrirse en cualquier explorador web y en RStudio.
 
 
-### Generar un reporte de un script .R
-
-Es posible generar un reporte a partir de un script de R, aún cuando **no tenga el formato de un archivo R Markdown**. Únicamente das click en el cuaderno (Compile report) o Ctrl+Shift+K.
-
-![alt text](https://github.com/u-genoma/BioinfinvRepro/raw/master/Unidad3/RColorB.png)
-
-
-### ¿Rmd o reporte de script.R?
-
-Un Rmarkdown es más útil si quieres hacer un reporte de los análisis, o incluso escribir tu tesis, utilizando R, de forma que tanto el texto explicativo como el código estén integrados en el mismo archivo. Esto garantiza la reproducibilidad total, pero solo funciona si todo lo vas a hacer con R y si te acomoda que otros comenten tu documento así.
-
-Un reporte de un script.R funciona si quieres "guardar cómo se ve" correr un análisis o discutirlo con tus colegas, pero no son un reporte tan bonito para entregar a alguien externo. 
-
-Así que cuándo usar cuál depende de la situación y tus gustos.
- 
  
 ## Manipulación y limpieza de datos en R
 
@@ -445,39 +400,6 @@ La manipulación y la limpieza da datos muchas veces es necesaria antes de poner
 
 * [Estrategia divide-aplica-combina](Divide-aplica-combina.html).
 
-
-**Ejercicio:**
-Escribe un script que debe estar guardado en `Prac_Uni3/maices/bin` y llamarse `ExplorandoMaiz.R`, que 1) cargue en R el archivo `Prac_Uni3/maices/meta/maizteocintle_SNP50k_meta_extended.txt` y 2) responda lo siguiente.
-
-(averigua cada punto con comandos de R. Recuerda comentar o tendrás 7 años de mala suerte en el lab)
-
-* ¿Qué tipo de objeto creamos al cargar la base?
-
-* ¿Cómo se ven las primeras 6 líneas del archivo?
-
-* ¿Cuántas muestras hay?
-
-* ¿De cuántos estados se tienen muestras?
-
-* ¿Cuántas muestras fueron colectadas antes de 1980?
-
-* ¿Cuántas muestras hay de cada raza?
-
-* En promedio ¿a qué altitud fueron colectadas las muestras?
-
-* ¿Y a qué altitud máxima y mínima fueron colectadas?
-
-* Crea una nueva df de datos sólo con las muestras de la raza Olotillo
-
-* Crea una nueva df de datos sólo con las muestras de la raza Reventador, Jala y Ancho
-
-* Escribe la matriz anterior a un archivo llamado "submat.cvs" en /meta.
-
-
-
-## Graficar en R
-
-Los apuntes de esta sección están en [Graficar en R](Graficar_en_R.html) (código y gráficas) y [Graficar en R](Graficar en R.Rmd) (sólo código)
 
 
 ## Bioconductor
@@ -644,14 +566,11 @@ REF: Bekcerman et al (2012). Getting Started with R: An Introduction for Biologi
 
 
 ## Cargar paquetes de R. 
-Rbowtie2 ( alineador )    
-Rsamtools ( manejar archivos tipo SAM)  
-ape (leer archivos gff)  
-paletas de colores (viridis)
+
+`ape` (leer archivos gff)  
+paletas de colores `(viridis)`
 
 ```r
-library(Rbowtie2)
-library(Rsamtools)
 library(ape)
 library(viridisLite)
 library(viridis)
@@ -664,8 +583,6 @@ library(viridis)
 
 gff_file <- read.gff("sequence.gff3", na.strings = c(".","?"), GFF3 = TRUE)
 ```
-
-![](https://hbctraining.github.io/Intro-to-rnaseq-hpc-O2/img/counts-workflow.png)
 
 ## Algunas estadisticas
 

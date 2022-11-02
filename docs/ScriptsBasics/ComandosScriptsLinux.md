@@ -231,11 +231,11 @@ done
 
 
 
-## 3. Programas de edición en Linux
+## Programas de edición en Linux
 
 <p style="text-align : justify">Dentro de Linux tenemos programas que podemos usar para acceder a archivos, donde podemos editarlo a gusto, muchos de estos editores fueron con los que se crearon la mayoria de programas que hoy conocemos, la programación de gran parte de las aplicaciones en varios lenguajes se ha hecho y aun puede hacerse con los editores de texto</p>
 
-### 3.1 Editor VIM
+### Editor VIM
 
 <img align="center" width="100%" src="https://media.geeksforgeeks.org/wp-content/uploads/20210131172236/intro.png">
 
@@ -277,7 +277,7 @@ Ahora haremos una lista de los principales comandos que se usa en vim:
 `Ctrl + w + (h-j-k-l)` permite saltar entre las ventanas
 
 
-### 3.2 Editor NANO
+### Editor NANO
 
 El editor `nano` muestra las opciones una ves se inicia, para iniciar es similar que `vim`:
 
@@ -285,7 +285,7 @@ El editor `nano` muestra las opciones una ves se inicia, para iniciar es similar
 
 Se antepone la tecla `Ctrl` en las opciones que aparecen en el editor:
 
-### 3.3 Editor PICO
+### Editor PICO
 
 El editor `pico` es muy similar a `nano` solo falta anteponer la tecla `Ctrl` a las letras de opciones que aparecen
 
