@@ -133,13 +133,9 @@ IIIIIIIIIIIIIIIIIIIIIIIIIIIIII9IG9IC
 Los datos FASTQ típicamente están comprimidos en formato 
 `gzip` (.gz) o `tar` (.tar.gz o .tgz).
 
-**Ejercicio**:
 
-En la Unidad 1 vimos cómo descomprimir archivos .tar.gz ¿Cómo descomprimir un archivo .gz?
+# Análisis de datos NGS
 
-
-Análisis de datos NGS
-=====================
 
 <p align="center" width="100%">
     <img src="https://www.researchgate.net/profile/Victoria-Dominguez-Del-Angel/publication/322946559/figure/fig2/AS:590843312361473@1517879431449/General-steps-in-a-genome-assembly-workflow-Input-and-output-data-are-indicated-for-each.png">
@@ -192,16 +188,7 @@ Los adaptadores se ligan al ADN de nuestras muestras en un paso de ligación, si
 
 Mucho, a partir del análisis FASTQC es que decidirás si tu secuenciación fue exitosa y qué parámetros de pre-procesamiento deberás utilizar para deshacerte del ruido y quedarte con **datos limpios**. 
 
-Escoger los parámetros adecuados de pre-procesamiento es vital ya que todas las corridas de secuenciación son diferentes. Lo más seguro es que el default del programa o lo que Perenganos *et al* 2015 reportaron en su artículo magno no sea lo mejor para procesar **tus** datos.
-
-Además entender bien tu FASTQC puede permitirte **rescatar** datos usables incluso dentro de una mala corrida. 
-
-### Pre-procesamiento 
-
-El pre-procesamiento se refiere al filtrado y edición de los datos crudos para quedarnos con los **datos limpios**, que son los que se analizarán para resolver preguntas biológicas.
-
-El input son archivos .fastq y el output son también archivos .fastq (o más posiblemente sus versiones comprimidas).
-
+Escoger los parámetros adecuados de pre-procesamiento es vital ya que todas las corridas de secuenciación son diferentes. Además entender bien tu FASTQC puede permitirte **rescatar** datos usables incluso dentro de una mala corrida. 
 
 
 ```bash
@@ -209,6 +196,13 @@ fastqc -t 2 ngsexample/data/*fastq.gz -o ngsexample/results/quality/
 ```
 
 ## FILTRADO DE READS
+### Pre-procesamiento 
+
+El pre-procesamiento se refiere al filtrado y edición de los datos crudos para quedarnos con los **datos limpios**, que son los que se analizarán para resolver preguntas biológicas.
+
+El input son archivos .fastq y el output son también archivos .fastq (o más posiblemente sus versiones comprimidas).
+
+
 El pre-procesamiento por lo común incluye los siguientes pasos:
 
 ##### Recortar secuencias por calidad (*Sequence Quality Trimming*)

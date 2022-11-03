@@ -111,14 +111,12 @@ Además de archivos de filas y columnas, se pueden leer a R todo tipo de archivo
 
 Cuando utilices `read.delim` o símil, asume que tu WD es donde vive tu script y **utiliza rutas relativas** para navegar hasta el archivo que deseas cargar.
 
-(Para poner triste Alicia preguntar por qué es importante hacer lo anterior).
-
 #### Working directory
 Buena práctica recomendada: que tu working directory sea donde sea que viva el script en el que estás trabajando.
 
 Para averiguar cuál es tu WD actual utiliza `getwd()`.
 
-Puedes definir tu WD manualmente con la función `setwd()`, pero OJO: realiza esto en **La Consola**, *NO en tu script*. Neto, porfas.
+Puedes definir tu WD manualmente con la función `setwd()`, pero OJO: realiza esto en **La Consola**, *NO en tu script*. 
 
 Una trampa práctica en RStudio para que tu WD sea el lugar donde vive tu script es ir al Menú:
 
@@ -127,10 +125,6 @@ Una trampa práctica en RStudio para que tu WD sea el lugar donde vive tu script
 O sease "source file" = tu script activo.
 
 Nota también que si abres RStudio clickeando su ícono, tu WD por default será el home de tu usuario. Sin embargo, si abres RStudio clickeando en un script, el WD default será donde viva dicho script.
-
-
-**Ejercicio:**
-Carga en R el archivo `Prac_Uni3/maices/meta/maizteocintle_SNP50k_meta_extended.txt` y ponlo en un objeto de R llamado meta_maiz.
 
 
 ### Trabajar con paquetes y datos externos
@@ -161,10 +155,10 @@ Citar un paquete en particular:
 ```
 citation("NombrePaquete")
 ```
-(o lo que loas autoreas especifiquen en su sitio web)
+(o lo que los autoreas especifiquen en su sitio web)
 
 
-##### Acordeón funciones útiles al trabajar con paquetes y archivos de datos
+##### Funciones útiles al trabajar con paquetes y archivos de datos
 
 * Funciones de sistema: `list.files`, `getwd`, `setwd`
 * Cargar una función: `source`
@@ -327,10 +321,6 @@ Nota que `source` NO corre la función en sí, sino que solo la carga al cerebro
 
 El nombre del archivo R no improta, pero es buena práctica ponerle el mismo que el nombre de la función.
 
-**Ejercicio:** Escribe una función llamada `calc.tetha` que te permita calcular tetha dados Ne y u como argumentos. Recuerda que tetha =4Neu.
-
-**Ejercicio:** Al script del ejercicio de las pruebas de Mantel, agrega el código necesario para realizar un Partial Mantel test entre la matriz Fst, y las matrices del presente y el LGM, parcializando la matriz flat. Necesitarás el paquete `vegan`.
- 
 ## Rmarkdown y R Notebook
 
 [R Markdown](http://rmarkdown.rstudio.com/index.html) es un formato que te permite crear documentos o reportes, en los que al mismo tiempo guardas y ejecutas código.
@@ -343,7 +333,7 @@ Primero, instala R Markdown:
  install.packages("rmarkdown")
 ```
 
-Ahora puedes crear un archivo `.Rmd` en "Archivo > Nuevo archivo > R Markdown". (nota que estoy es distinto que R script).
+Ahora puedes crear un archivo `.Rmd` en "Archivo > Nuevo archivo > R Markdown". (nota que esto es distinto que R script).
 
 Un archivo R Markdown es un archivo de texto plano que debe verse algo así:
 
@@ -394,13 +384,7 @@ Puedes ver más acordenos parecidos en [este link](https://www.rstudio.com/resou
 
 
 
-La manipulación y la limpieza da datos muchas veces es necesaria antes de poner hacer análisis en R. Aquí trataremos brevemente lo siguientes puntos en [notas aparte]:
-
-* [Reestructura de datos y el principio de los datos limpios](Limpieza_de_datos.Rmd).
-
-* [Estrategia divide-aplica-combina](Divide-aplica-combina.html).
-
-
+La manipulación y la limpieza da datos muchas veces es necesaria antes de poner hacer análisis en R. 
 
 ## Bioconductor
 
@@ -414,7 +398,7 @@ Como hemos visto los paquetes son un grupo de funciones que alguien desarrolla e
 
 #### [Paquetes de Bioconductor](https://www.bioconductor.org/packages/release/BiocViews.html#___Software)
 
-Como los paquetes de Bioconductor están escritos en el lenguaje de R, muchos tendrán tipos de objetos particulares al paquete y funciones nuevas, pero con tener las bases de R que hemos visto estarás listoa para aprenderlo.
+Como los paquetes de Bioconductor están escritos en el lenguaje de R, muchos tendrán tipos de objetos particulares al paquete y funciones nuevas, pero con tener las bases de R que hemos visto estarás list@ para aprenderlo.
 
 La mejor manera de conocer qué hace y  usar un paquete es seguir un tutorial o vignette.
 
