@@ -107,15 +107,15 @@ Para el analsis de datos en Linux se instalaran los siguiente programas:
 sudo apt-get install ncbi-entrez-direct bowtie2 sortmerna subread samtools rna-star trim-galore fastqc seqtk
 ```
 
-`ncbi-entrez-direct` : Descarga de secuencias desde el NCBI 
-`bowtie2`   : Alineador de datos NGS fastq
-`sortmerna` : Alineador de ARN ribosomales 
-`subread`   : Conteo de secuencias alineadas  
-`samtools`  : Manejo de secuencias alineadas SAM/BAM
-`rna-star`  : Alineador de secuencias para RNA-Seq
-`trim-galore`: Filtrado de secuencias fastq de baja calidad
-`fastqc`    : Calculo de calidad de secuencias fastq
-`setqk`     : Manejo de secuencias fastq y fasta
+`ncbi-entrez-direct` : Descarga de secuencias desde el NCBI   
+`bowtie2`   : Alineador de datos NGS fastq  
+`sortmerna` : Alineador de ARN ribosomales   
+`subread`   : Conteo de secuencias alineadas    
+`samtools`  : Manejo de secuencias alineadas SAM/BAM  
+`rna-star`  : Alineador de secuencias para RNA-Seq  
+`trim-galore`: Filtrado de secuencias fastq de baja calidad  
+`fastqc`    : Calculo de calidad de secuencias fastq  
+`setqk`     : Manejo de secuencias fastq y fasta  s
 
 ## Descarga de archivos para el curso
 

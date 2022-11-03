@@ -2,25 +2,11 @@
 layout: page
 title: Vias metabolicas de genes expresados diferencialmente
 parent: Procesamiento de datos RNA-Seq
+nav_order: 4
 ---
 
 ## Enrriquecimiendo de vias metabolicas
 
-## Introducción
-
-
-
-## CONTENIDO
-
-- [CONTEO DE GENES](#conteo-de-genes)
-- [CONTROL DE CALIDAD](#control-de-calidad)
-- [FILTRADO DE SECUENCIAS](#filtrado-de-secuencias)
-- [FILTRADO DE rRNA](#filtrado-de-rrna)
-- [ALINEAMIENTO](#alineamiento)
-- [CONTEO DE SECUENCIAS](#conteo-de-secuencias)
-- [IMPORTAR A R](#importar-a-r)
-
-## CONTEO DE GENES
  
 ``` r
 library(DESeq2)
@@ -112,7 +98,3 @@ pathview(gene.data = gene_matrix,
 
 ```
 
-
-[tair link](https://www.arabidopsis.org/tools/go_term_enrichment.jsp)
-
-[PHANTER link](http://pantherdb.org/)

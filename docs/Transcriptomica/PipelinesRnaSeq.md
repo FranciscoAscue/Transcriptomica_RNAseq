@@ -2,16 +2,12 @@
 layout: page
 title: Análisis Diferencial y Anotacion de Genes
 parent: Procesamiento de datos RNA-Seq
+nav_order: 2
 ---
 
-## Análisis Diferencial de Genes 
-
-5.Análisis Diferencial de Genes
-================
+## 2.Análisis Diferencial de Genes 
 
 ## Introducción
-
-
 
  
 ``` r

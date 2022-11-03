@@ -2,24 +2,10 @@
 layout: page
 title: Estadísticas de Genes significativos
 parent: Procesamiento de datos RNA-Seq
+nav_order: 3
 ---
 
-## Análisis Diferencial de Genes 
-
-## Introducción
-
-
-## CONTENIDO
-
-- [CONTEO DE GENES](#conteo-de-genes)
-- [CONTROL DE CALIDAD](#control-de-calidad)
-- [FILTRADO DE SECUENCIAS](#filtrado-de-secuencias)
-- [FILTRADO DE rRNA](#filtrado-de-rrna)
-- [ALINEAMIENTO](#alineamiento)
-- [CONTEO DE SECUENCIAS](#conteo-de-secuencias)
-- [IMPORTAR A R](#importar-a-r)
-
-## CONTEO DE GENES
+## Estadísticas de Genes significativos 
  
 ``` r
 library(BiocManager)

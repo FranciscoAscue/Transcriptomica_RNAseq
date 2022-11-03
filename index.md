@@ -31,7 +31,7 @@ nav_order: 1
 |2:00 pm - 2:45 pm|Introducción a Transcriptomica|-|
 |2:45 pm - 3:15 pm|Revisión de programas y soporte de instalación|-|
 |3:15 pm - 4:15 pm|break|-|
-|4:15 pm - 4:45 pm|Análisis de secuencias: Calidad y filtrado de RNA|SortMeRNA, Samtools|
+|4:15 pm - 4:45 pm|Análisis de secuencias: Calidad y filtrado de rRNA|SortMeRNA, Samtools|
 |4:45 pm - 5:30 pm|Análisis de secuencias: Ensamblaje y recuento.| STAR, featureCounts|
 
 **Sabado 12/11/22**

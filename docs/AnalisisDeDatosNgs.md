@@ -88,10 +88,8 @@ Ordenados de menor a mayor estos son los caracteres ASCII usados para representa
 Dependiendo del tipo y versión de plataforma de secuenciación se toman diferentes caracteres (pero sin desordenarlos):
 
 
-![ascii_fastqplataformas.PNG](ascii_fastqplataformas.PNG)
 
-(Tomé la imágen de [aquí](http://en.wikibooks.org/wiki/Next_Generation_Sequencing_(NGS)/Pre-processing#Sequence_Quality)
-)
+(Tomé la imágen de [aquí](http://en.wikibooks.org/wiki/Next_Generation_Sequencing_(NGS)/Pre-processing#Sequence_Quality))
 
 Pero en todos los casos el **valor máximo de calidad es = ~40** y los valores **< 20 se consideran bajos**.
 
@@ -198,14 +196,6 @@ Escoger los parámetros adecuados de pre-procesamiento es vital ya que todas las
 
 Además entender bien tu FASTQC puede permitirte **rescatar** datos usables incluso dentro de una mala corrida. 
 
-**Ejercicio**.
-
-[Baja la versión de escritorio de FastQC](http://www.bioinformatics.babraham.ac.uk/projects/download.html#fastqc). Corre en java y está disponible para Linux, Mac y lo crean o no, Windows. 
-
-Abre el archivo `Unidad5/Prac_Uni5/FastqsEjemplo/datos/human_Illumina_dataset.fastq` y examina cada uno de los módulos de FastQC ¿Qué opinas del resultado? ¿Qué harías para limpiarlo?
-
-Estos datos ejemplo vienen de [Galaxy Data Libraries](https://usegalaxy.org/library/list#folders/F5bee13e9f312df25/datasets/99fa250d93e003f7) y son de libre uso.
-
 ### Pre-procesamiento 
 
 El pre-procesamiento se refiere al filtrado y edición de los datos crudos para quedarnos con los **datos limpios**, que son los que se analizarán para resolver preguntas biológicas.
@@ -251,55 +241,8 @@ Si se realizó secuenciación Illumina a ambos lados (*pair end*) es posible uni
 ##### Remover otras secuencias no deseadas
 Busca secuencias no deseadas, como genoma de *E. coli*, restos de PhiX o partes del genoma que no son de interés (e.g. cpDNA).  
 
-**Ejercicio**: busca un artículo con datos y análisis parecidos a los que tendrás en tu proyecto y determina con qué programas y parámetros realizaron el pre-procesamiento. 
 
-#### Software para realizar el pre-procesamiento
-
-##### Línea de comando con programa especializado
-
-La mayoría de los pasos del pre-procesamiento puede hacerse con programas dedicados a esto como [FASTX-Toolkit](http://hannonlab.cshl.edu/fastx_toolkit/), pero también algunos programas especializados (e.g. en datos RAD, como pyRAD o Stacks) tienen sus propios módulos para el pre-procesamiento. 
-
-Es importante hacer el pre-procesamiento acorde a la naturaleza y calidad de nuestros datos. 
-
-
-**Ejercicio**
-
-Utiliza un contenedor con FastXtools y otro con FASTQC para limpiar las secuencias del archivo `Prac_Uni5/FastqsEjemplo/datos/human_Illumina_dataset.fastq`, y visualizar el resultado del clipeo antes y después con FastQC. Deberás utilizar docker en la forma `docker run -v [rutaabsoutaalosdatos] fastxtools [comandosfastxtools]`, es decir **no** entrando a los contenedores.
-
-Primero conseguir las imágenes de los contenedores:
-
-```
-# docker pull biocontainers/fastxtools
-# dokcer pull biocontainers/FASTQC
-```
-
-Como sabemos, necesitaremos montar un volumen a `Prac_Uni5/FastqsEjemplo/datos/human_Illumina_dataset.fastq` utilizando la respectiva ruta absoluta dentro de nuestros equipos. Para no andar copiando la ruta tan larga todo el tiempo, es buena idea crear una variable que la contenga.
-
-```
-pmisdatos=/Users/ticatla/hubiC/Science/Teaching/Mx/BioinfInvgRepro/BioinfInvRepro2017-II/Unidad5/Prac_Uni5/FastqsEjemplo/datos/
-```
-
-Ahora sí, ¿qué comandos correr de fastxtools y de fastqc? 
-
-
-**Ejercicio**
-
-Integra todo lo que hicimos antes en un script.
-
-**Ejercicio**
-
-Como mencionamos antes, además de programas dedicados sólo al pre-procesamiento como FASTX, hay programas especializados que incluyen una pipeline completa para pre-procesar y procesar los datos. Esto puede ser una buena idea para cierto tipo de datos que no necesariamente cumplen con las expectativas de herramientas como FASTX. 
-
-El ejercicio es que formen equipos de 3 personas con un tipo de datos en común y que discutan entre sí con qué programas se analizan sus tipos de datos y si estos realizan también el pre-procesamiento. 
-
-Algunos temas para formar los equipos:
-
-* Mapeo a genomas de referencia
-* Transcriptomas/genomas de novo
-* RAD/GBS para genética de poblaciones 
-* RAD/GBS para filogenética
-* ChipsSeq para asociaciones fenotipo-genotipo
-* Metabarcoding
+#### Trim_galore
 
 ```bash
 #trim_galore 
@@ -327,6 +270,9 @@ Ejemplo:
 1 processed_transcript                transcript  11869 14409 . + . gene_id "ENSG00000223972"; transcript_id "ENST00000456328"; gene_name "DDX11L1"; gene_sourc e "havana"; gene_biotype "transcribed_unprocessed_pseudogene"; transcript_name "DDX11L1-002"; transcript_source "havana";
 ```
  
+
+
+## ALINEAMIENTO
 
 #### Formato SAM/BAM
 "Sequence Alignment Map", su versión binaria (comprimida) BAM.
@@ -401,64 +347,6 @@ r001  147 ref 37 30 9M         =  7 -39 CAGCGGCAT         * NM:i:1
 ```
 
 
-## ALINEAMIENTO
-
-## 5.6. Mapeo a genoma de referencia 		
-Para esta sección leeremos los artículos:
-
-Otra vez:
-[De Wit P, Pespeni MH, Ladner JT et al. (2012) The simple fool’s guide to population genomics via RNA-Seq: an introduction to high-throughput sequencing data analysis. Molecular Ecology Resources, 12, 1058–1067.](http://onlinelibrary.wiley.com/doi/10.1111/1755-0998.12003/full)
-
-Y este tutorial asociado [http://sfg.stanford.edu/mapping.html](http://sfg.stanford.edu/mapping.html)
-
-
-## 5.7. Metabarcoding y símiles 
-
-Para esta sección leeremos los artículos:
-
-[Creer S, Deiner K, Frey S et al. (2016) The ecologist’s field guide to sequence-based identification of biodiversity. Methods in Ecology and Evolution, 7, 1008–1018.](http://onlinelibrary.wiley.com/doi/10.1111/2041-210X.12574/full)
-
-[Coissac E, Riaz T, Puillandre N (2012) Bioinformatic challenges for DNA metabarcoding of plants and animals. Molecular ecology, 21, 1834–1847.](http://onlinelibrary.wiley.com/doi/10.1111/j.1365-294X.2012.05550.x/full)
-
-
-
-## 5.8. Ensamblando datos RAD, GBS y símiles 		
-
-Para esta sección leeremos el artículo:
-
-[Andrews KR, Good JM, Miller MR, Luikart G, Hohenlohe PA (2016) Harnessing the power of RADseq for ecological and evolutionary genomics. Nature Reviews Genetics, 17, 81–92.](http://www.nature.com/nrg/journal/v17/n2/full/nrg.2015.28.html)
-
-**Ejercicio**
-
-* Divídanse en equipos por tipo de datos (transcriptoma, genoma, RAD, metabarcoding, etc) y tipo de análisis (ensamblado de novo, mapeo, filogenética, genética de poblaciones).
-* Discutan los artículos relevantes que dejamos leer para las secciones anteriores y cualquier otro que hayas consultado como parte de la tarea opcional anterior.
-* Contesta lo siguiente:
-
-1. ¿Cuáles son las principales variantes del método de laboratorio para generar mis datos y cuándo es más útil cada una?
-2. ¿Qué limitantes y posibles fuentes de error puede presentar este método (en el laboratorio o la bioinformática)? ¿Qué puede hacerse para amortiguarlos?
-3. ¿El muestreo requiere algún diseño específico? Por ejemplo, si se quiere secuenciar un genoma *de novo* ¿qué individuo sería ideal? Si trabajo con trascriptomas, ¿cómo afecta el tejido, la edad, las condiciones, etc. mi muestreo?
-4. Menciona al menos dos softwares principales que se utilicen para realizar la parte medular de los análisis bioinformáticos de este tipo de análisis (e.g. si es ensamblado *de novo* con qué se ensambla, no con qué se hace el pre-procesamiento) y cuáles son los pros y contras de cada uno. 
-
-* Contesten las preguntas anteriores en un archivo markdown llamado `Resumen-EquipoX.md` (donde X será  cada uno de los tipos de datos). Si requieres poner imágenes ponles el prefijo `Resumen-EquipoX-FigN`. Pongan los integrantes del equipo al inicio del documento.
-* Realicen un pull-request para subir dicho archivo(s) al master del repositorio de la clase en la ruta `Unidad5/Prac_Uni5`.
-* Unx o varixs representantes por equipo pasen a exponer brevemente (5 mins) las conclusiones utilizando como apoyo los archivos anteriores.
-		
-## 5.9. Importancia de elección de parámetros en análisis bioinformáticos
-
-Para esta sección leeremos el artículo:
-
-[Mastretta-Yanes A, Arrigo N, Alvarez N et al. (2015) Restriction site-associated DNA sequencing, genotyping error estimation and de novo assembly optimization for population genetic inference. Molecular Ecology Resources, 15, 28–41.](http://onlinelibrary.wiley.com/wol1/doi/10.1111/1755-0998.12291/full)
-
-Y lo discutiremos con el apoyo de esta [presentación](./S2_1640_Mastretta-Yanes_5_noanimation.pdf) y los [Materiales Suplementarios 1](./SupportingInformation_1_diagram_corrected.pdf) del artículo.
-
-
-## 5.10. Ambiente computacional y reproducibilidad de análisis bioinformáticos 
-
-Para esta sección leeremos el artículo:
-
-[Beaulieu-Jones BK, Greene CS (2017) Reproducibility of computational workflows is automated using continuous analysis. Nature Biotechnology, advance online publication.](http://www.nature.com/nbt/journal/vaop/ncurrent/full/nbt.3780.html)
-
-
 ### Preparacion del index 
 
 ```bash
@@ -479,32 +367,14 @@ bowtie2-build -threads 2 ngsexample/data/NC_001224.1.fasta ngsexample/data/index
 ### Alineamiento de secuencias
 
 ```bash
-#!/bin/bash
+bowtie -end-to-end -I 0 -X 1000 -p 3 \
+-x ngsexample/data/index/mitocp \
+-1 $r1 -2 $r2 \
+-S ngsexample/results/map/saccmito.sam
 
-###bowtie2
+samtools view -u@ 8 ${OD}/saccmito.sam | samtools sort -@ 40 -o ${OD}/saccmito.sorted.bam -
 
-###CONSTANTS
+samtools index ${OD}/saccmito.sorted.bam
 
-WD="~/Curso_transcriptomica/SARS"
-REF="${WD}/data/reference/NC_000.fasta"
-RES="${WD}/results"
-READS="${WD}/data/reads/"
-r1="${READS}/sars2_1.fq"
-r2="${READS}/sars2_2.fq"
-OD="${RES}/map"
-
-###EXECUTION
-echo "started at `date`"
-
-echo "mkdir -p ${OD}"
-mkdir -p ${OD}
-
-bowtie -end-to-end -I 0 -X 1000 -p 30 -x ${REF} -1 $r1 -2$r2 -S ${OD}/cavtsc.sam
-
-samtools view -u@ 8 ${OD}/cavtsc.sam | samtools sort -@ 40 -o ${OD}/cavtsc.sorted.bam -
-
-samtools index ${OD}/cavtsc.sorted.bam
-
-echo "Finished at `date`"
 ```
 
