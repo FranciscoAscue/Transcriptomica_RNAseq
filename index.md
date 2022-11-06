@@ -39,7 +39,7 @@ nav_order: 1
 | Horario  |   Actividad | Programas a utilizar |
 |:----------:|:-------------:|:-----------:|:---------------------:|
 |2:00 pm - 4:00 pm|Normalización y expresión diferencial.|DEseq2, Rsubread, org.Sc.sgd.db|
-|4:00 pm - 5:00 pm|Estadísticas de Genes significativos.|ggplot2,dplyr, KEGG.db, GO.db|
+|4:00 pm - 5:00 pm|Estadísticas de Genes significativos.|ggplot2,dplyr,pheatmap|
 |5:00 pm - 5:30 pm|break|-|
-|5:30 pm - 6:30 pm|Enrriquecimiendo de vias metabolicas.|pheatmap, pathview |
+|5:30 pm - 6:30 pm|Enrriquecimiendo de vias metabolicas.|KEGG.db, GO.db, pathview |
 
