@@ -361,14 +361,21 @@ bowtie2-build --threads 2 ngsexample/data/NC_001224.1.fasta ngsexample/data/inde
 ### Alineamiento de secuencias
 
 ```bash
-bowtie2 -end-to-end -I 0 -X 1000 -p 3 \
--x ngsexample/data/index/mitocp \
--1 $r1 -2 $r2 \
--S ngsexample/results/map/saccmito.sam
+lista="SRR21688982_mt_ SRR21688985_mt_ SRR21688981_mt_ SRR21688987_mt_"
 
-samtools view -u@ 8 ${OD}/saccmito.sam | samtools sort -@ 40 -o ${OD}/saccmito.sorted.bam -
+for i in $lista
+do
+	bowtie2 --end-to-end -I 0 -X 1000 -p 3 \
+	-x ngsexample/data/index/mitocp \
+	-1 ngsexample/results/trimmed/${i}1_trimmed.fq.gz \
+	-2 ngsexample/results/trimmed/${i}2_trimmed.fq.gz \
+	-S ngsexample/results/map/${i}0.sam
 
-samtools index ${OD}/saccmito.sorted.bam
+	samtools view -u@ 2 ngsexample/results/map/${i}0.sam | \
+	samtools sort -@ 2 -o ngsexample/results/map/${i}.sorted.bam -
 
+	samtools index ngsexample/results/map/${i}.sorted.bam
+
+done
 ```
 
