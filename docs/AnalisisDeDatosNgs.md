@@ -361,7 +361,7 @@ bowtie2-build --threads 2 ngsexample/data/NC_001224.1.fasta ngsexample/data/inde
 ### Alineamiento de secuencias
 
 ```bash
-bowtie -end-to-end -I 0 -X 1000 -p 3 \
+bowtie2 -end-to-end -I 0 -X 1000 -p 3 \
 -x ngsexample/data/index/mitocp \
 -1 $r1 -2 $r2 \
 -S ngsexample/results/map/saccmito.sam
