@@ -355,7 +355,7 @@ mkdir -p ngsexample/data/index
 
 ## realizamos el indexado del genoma
 
-bowtie2-build -threads 2 ngsexample/data/NC_001224.1.fasta ngsexample/data/index/mitocp
+bowtie2-build --threads 2 ngsexample/data/NC_001224.1.fasta ngsexample/data/index/mitocp
 
 ```
 ### Alineamiento de secuencias
