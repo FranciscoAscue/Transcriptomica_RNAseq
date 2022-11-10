@@ -9,26 +9,14 @@ nav_order: 2
 
 ## Introducción
 
- 
+En esta seccion vamos a obtener los recuentos de los 2 tratamientos que hemos visto para el experimento, antes de empezar se esta dejando a continuacion otra forma de realizar el conteo conjunto a travez de R, para ello se esta cargando el paquete `Rsubread`.
 ``` r
 library(DESeq2)
 library(ggplot2)
-library(clusterProfiler)
-library(biomaRt)
-library(ReactomePA)
-library(DOSE)
-library(KEGG.db)
-library(org.Hs.eg.db)
-library(pheatmap)
-library(genefilter)
-library(RColorBrewer)
-library(GO.db)
-library(topGO)
-library(dplyr)
-library(gage)
-library(ggsci)
+library(Rsubread)
 ```
 
+Antes de realizar el conteo de reads se realiza un lista de todos los archivos BAM alineados anteriormente que pueden se reads SE (Single End) o PE (Paired End)
 
 ``` r
 bamfilesSE <- list.files(path = "bamfile_SE", 
@@ -42,6 +30,7 @@ bamfilesPE <- list.files(path = "bamfile_PE",
 bamfilesSE
 ```
 
+Una vez listados los archivos que se usaran se procede al conteo de las secuencias, para ello se necesitara tambien el genoma de referencia para lo cual deben fijar la direccion donde se encuenta:
 
 ```r
 conteo <- featureCounts( files = bamfilesSE, 
@@ -90,38 +79,70 @@ conteo <- featureCounts( files = bamfilesSE,
                      ||                                                                            ||
                      \\============================================================================//
    
+El conteo de secuencias debe ser guardado para evitar perder el analisis.
 ```r
 conteo$counts
 write.table(conteo$counts , file = "rawSE_counts.txt", sep = "\t")
 ```
 
-   
+- Desde este punto en adelante los analisis que vamos a realizar siguen el mismo procedimiento:
+
+### Lectura de tabla de conteos
 ```r
-data <- read.table("rawSE_counts.txt", header = TRUE , row.names = 1)
+data <- read.table("results/counts/conteoCompleto/final_counts.txt", header = TRUE , row.names = 1)
 head(data)
 ```
-
+### Edición del nombre de las secuencias 
 ```r
-colnames(data) <- gsub("_sortedByCoord.out.bam", "", colnames(data), fixed = T)
+colnames(data) <- gsub(".Aligned.sortedByCoord.out.bam", "", colnames(data), fixed = T)
 colnames(data) <- gsub("..", "", colnames(data), fixed = T)
 row.names(data) <- gsub("gene-", "", rownames(data), fixed = T)
 head(data)
+
 ```
 
-    
-```r
-metadata <- read.delim("muestras.txt", row.names = 1)
-metadata$sampleid <- row.names(metadata)
-metadata <- metadata[match(colnames(data), metadata$sampleid),]
-metadata
+### Creacion de metadata 
+
 ```
+### Metadata 
+SampleID        Group   Replicate
+ERR2929683      Test    Rep1
+ERR2929684      Test    Rep2
+ERR2929685      Test    Rep3
+ERR2929686      Reference       Rep1
+ERR2929687      Reference       Rep2
+ERR2929688      Reference       Rep3
+```
+
+### Cargado de metadata (muestras.txt) y edición 
 ```r
-ddsMat <- DESeqDataSetFromMatrix(countData = data, 
+metadata <- read.table("muestras.txt", sep = "\t", header = TRUE)
+row.names(metadata) <- metadata$SampleID 
+metadata <- metadata[match(colnames(data[,-c(1:5)]), metadata$SampleID),]
+#### Replace Group
+metadata$Group[metadata$Group == "Test"] <- 1
+metadata$Group[metadata$Group == "Reference"] <- 0
+metadata$Group <- factor(metadata$Group)
+```
+
+### Creacion de datos DESeq y Normalizacion de conteos 
+
+```r
+ddsMat <- DESeqDataSetFromMatrix(countData = data[,-c(1:5)], 
                                  colData = metadata, 
                                  design = ~Group)
+
+ddsMat <- estimateSizeFactors(ddsMat)
+
+sizeFactors(ddsMat)
+normalized_counts <- counts(ddsMat, normalized=TRUE)
+write.table(normalized_counts, file="data/normalized_counts.txt", sep="\t", quote=F, col.names=NA)
+
+
 ddsMat <- DESeq(ddsMat)
 ```
 
+### Ajuste de resultados para posterior análisis 
 ```r
 # Get results from testing with FDR adjust pvalues
 results <- results(ddsMat, pAdjustMethod = "fdr", alpha = 0.05)

@@ -41,7 +41,7 @@ for i in {4..8}
 do
 	sortmerna \
 	--ref $sortmernaREF \
-	--reads data/ERR292968${i}.fastq \
+	--reads data/ERR292968${i}_sample0.1.fastq \
 	--aligned results/filter/ERR292968${i}_sample_aligned.fq \
 	--other results/filter/ERR292968${i}_sample_filtered.fq \
 	--fastx \
@@ -57,7 +57,7 @@ Al igual que el alineador Bowtie2 se generara un indexado del genoma
 
 ```bash
 
-STAR --runMode genomeGenerate --genomeDir . --genomeSAindexNbases 7 --genomeFastaFiles GCF_000146045.2_R64_genomic.fna --sjdbGTFfile GCF_000146045.2_R64_genomic.gtf --runThreadN 40
+STAR --runMode genomeGenerate --genomeDir . --genomeSAindexNbases 10 --genomeFastaFiles GCF_000146045.2_R64_genomic.fna --sjdbGTFfile GCF_000146045.2_R64_genomic.gtf --runThreadN 40
 
 ```
 

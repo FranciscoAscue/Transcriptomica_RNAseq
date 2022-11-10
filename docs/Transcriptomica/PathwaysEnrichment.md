@@ -10,67 +10,51 @@ nav_order: 4
  
 ``` r
 library(DESeq2)
-library(org.At.tair.db)
+library(org.Sc.sgd.db)
 library(GO.db)
-library(topGO)
+library(KEGGgraph)
 library(clusterProfiler)
 library(pathview)
 ```
 
 
-``` r
-columns(org.At.tair.db)
-keytypes(org.At.tair.db)
-```
-
-
+### Anotacion de genes segun bases de datos
 ```r
+columns(org.Sc.sgd.db)
+keytypes(org.Sc.sgd.db)
+
 # Add gene full name
-results$description <- mapIds(x = org.At.tair.db,
-                              keys = row.names(results),
-                              column = "GENENAME",
-                              keytype = "TAIR",
-                              multiVals = "first")
+results$description <-  AnnotationDbi::select(org.Sc.sgd.db, keys = row.names(results),
+                                              columns = 'DESCRIPTION', 
+                                              keytypes = 'ALIAS')
+
+results$description
+
+results$genename <-  AnnotationDbi::select(org.Sc.sgd.db, keys = row.names(results),
+                                              columns = 'GENENAME', 
+                                              keytypes = 'ALIAS')
 
 # Add gene symbol
 results$symbol <- row.names(results)
 
 # Add ENTREZ ID
-results$entrez <- mapIds(x = org.At.tair.db,
-                         keys = row.names(results),
-                         column = "ENTREZID",
-                         keytype = "TAIR",
-                         multiVals = "first")
+results$entrez <- AnnotationDbi::select(org.Sc.sgd.db, keys = row.names(results),
+                                                                columns = 'ENTREZID', 
+                                                                keytypes = 'ALIAS')
+results$ORF <- AnnotationDbi::select(org.Sc.sgd.db, keys = row.names(results),'ORF','ALIAS', multiVals = "list")
 
-results$evidence <- mapIds(x = org.At.tair.db,
-                         keys = row.names(results),
-                         column = "EVIDENCE",
-                         keytype = "TAIR",
-                         multiVals = "first")
+head(results$ORF)
+columns(org.Sc.sgd.db)
+keytypes(org.Sc.sgd.db)
+results$GO <- AnnotationDbi::select(org.Sc.sgd.db, keys = row.names(results),"GOALL","ALIAS", multiVals = "list")
 
-results$GO <- mapIds(x = org.At.tair.db,
-                         keys = row.names(results),
-                         column = "GO",
-                         keytype = "TAIR",
-                         multiVals = "first")
+### Add gene Ontology code
+
+results$GO <- mapIds(org.Sc.sgd.db, keys = row.names(results),'GOALL','ORF')
+
+
 ```
-
-```r
-results_sig <- subset(results, padj < 0.05)
-results_sig
-```
-
-   
-```r
-# Remove any genes that do not have any entrez identifiers
-results_sig_entrez <- subset(results_sig, is.na(GO) == FALSE)
-
-# Create a matrix of gene log2 fold changes
-# View the format of the gene matrix
-##- Names = ENTREZ ID
-##- Values = Log2 Fold changes
-results_sig_entrez
-```
+### Enrriquecimiento de GO (gene ontology)
 
 ```r
 columns(GO.db)
@@ -78,23 +62,47 @@ keytypes(GO.db)
 enrich <- AnnotationDbi::select(GO.db, keys = results_sig$GO, columns = c('TERM', 'ONTOLOGY'), keytypes = 'GO')
 enrich$symbol <- results_sig$symbol
 enrich
-```
 
-    
-```r
 enrich2 <- AnnotationDbi::select(GO.db, keys = results_sig$GO, columns = 'DEFINITION', keytypes = 'GO')
 enrich2$symbol <- results_sig$symbol
 enrich2
-```
-```r
+
+results_sig_entrez <- subset(results_sig, is.na(GO) == FALSE)
+
+data <- enrich %>% group_by(ONTOLOGY) %>% summarise(N = n())
+barplot(data$N)
+# Create a matrix of gene log2 fold changes
+# View the format of the gene matrix
+##- Names = ENTREZ ID
+##- Values = Log2 Fold changes
+results_sig_entrez
+
 gene_matrix <- results_sig_entrez$log2FoldChange
-names(gene_matrix) <- results_sig_entrez$entrez
+rownames(results_sig_entrez)
+names(gene_matrix) <- results_sig_entrez$entrez$ENTREZID
+
 ```
+### Enrriquecimiento de KEGG
 
 ```r
-pathview(gene.data = gene_matrix, 
-         pathway.id = "04130", 
-         species = "ath")
+enrichKEeeGG <- enrichKEGG(gene = rownames(results_sig_entrez),
+           organism = 'sce',
+           pvalueCutoff = 0.05, 
+           qvalueCutoff = 0.10)
 
+
+barplot(enrichKEeeGG, 
+        drop = TRUE, 
+        showCategory = 10, 
+        title = "KEGG Enrichment Pathways",
+        font.size = 8)
+```
+
+### Plot de Pricipales vias metabolicas afectadas
+
+```r
+pathview(gene.data = gene_matrix,
+         pathway.id = "00010", 
+         species = "sce")
 ```
 
