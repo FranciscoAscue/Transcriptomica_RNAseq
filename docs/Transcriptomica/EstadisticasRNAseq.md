@@ -35,6 +35,9 @@ plotPCA(ddsMat_rlog, intgroup = "Group", ntop = 40) +
     <img width="100%" src="/img/pca.png"> 
 </p>
 
+[](../../img/pca.png)
+
+
 ### Heatmap de pricipales genes expresados diferencialmente
 ```r
 results_sig <- subset(results, padj < 0.05)
@@ -88,6 +91,8 @@ pheatmap(mat = mat,
     <img width="100%" src="/img/heatmap.png"> 
 </p>
 
+[](../../img/heatmap.png)
+
 
 ### Volcan Plot de genes expresados diferencialmente 
 ```r
@@ -127,6 +132,9 @@ vol +
     <img width="100%" src="/img/volcan.png"> 
 </p>
 
+[](../../img/volcan.png)
+
+
 ### Plot de Dispersion de datos ajustados a modelo de regresión
 
 ```r
@@ -140,9 +148,13 @@ plotDispEsts(ddsMat)
     <img width="100%" src="/img/Disper2.png"> 
 </p>
 
+[](../../img/Disper2.png)
+
 <p align="center" width="100%">
     <img width="100%" src="/img/Disp.png"> 
 </p>
+
+[](../../img/Disp.png)
 
 ### Análisis de genes especificos 
 
