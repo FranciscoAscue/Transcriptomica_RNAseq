@@ -105,13 +105,13 @@ head(data)
 
 ```
 ### Metadata 
-SampleID        Group   Replicate
-ERR2929683      Test    Rep1
-ERR2929684      Test    Rep2
-ERR2929685      Test    Rep3
-ERR2929686      Reference       Rep1
-ERR2929687      Reference       Rep2
-ERR2929688      Reference       Rep3
+SampleID,Group,Replicate
+ERR2929683,Test,Rep1
+ERR2929684,Test,Rep2
+ERR2929685,Test,Rep3
+ERR2929686,Reference,Rep1
+ERR2929687,Reference,Rep2
+ERR2929688,Reference,Rep3
 ```
 
 ### Cargado de metadata (muestras.txt) y edición 
