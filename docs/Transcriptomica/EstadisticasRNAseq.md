@@ -31,11 +31,7 @@ plotPCA(ddsMat_rlog, intgroup = "Group", ntop = 40) +
           subtitle = "Top 40 most variable genes") 
 ```
 
-<p align="center" width="100%">
-    <img width="100%" src="/img/pca.png"> 
-</p>
-
-[](../../img/pca.png)
+![](../../img/pca.png)
 
 
 ### Heatmap de pricipales genes expresados diferencialmente
@@ -87,11 +83,7 @@ pheatmap(mat = mat,
          cluster_cols = F,
          show_colnames = F)
 ```
-<p align="center" width="100%">
-    <img width="100%" src="/img/heatmap.png"> 
-</p>
-
-[](../../img/heatmap.png)
+![](../../img/heatmap.png)
 
 
 ### Volcan Plot de genes expresados diferencialmente 
@@ -128,11 +120,8 @@ vol +
   geom_hline(yintercept = 1.3, colour = "darkgrey") + # Add p-adj value cutoff line
   scale_y_continuous(trans = "log1p") # Scale yaxis due to large p-v
 ```
-<p align="center" width="100%">
-    <img width="100%" src="/img/volcan.png"> 
-</p>
 
-[](../../img/volcan.png)
+![](../../img/volcan.png)
 
 
 ### Plot de Dispersion de datos ajustados a modelo de regresión
@@ -144,17 +133,12 @@ plotDispEsts(ddsMat)
 
 
 ```
-<p align="center" width="100%">
-    <img width="100%" src="/img/Disper2.png"> 
-</p>
 
-[](../../img/Disper2.png)
 
-<p align="center" width="100%">
-    <img width="100%" src="/img/Disp.png"> 
-</p>
+![](../../img/Disper2.png)
 
-[](../../img/Disp.png)
+
+![](../../img/Disp.png)
 
 ### Análisis de genes especificos 
 
