@@ -116,7 +116,7 @@ ERR2929688,Reference,Rep3
 
 ### Cargado de metadata (muestras.txt) y edición 
 ```r
-metadata <- read.table("muestras.txt", sep = "\t", header = TRUE)
+metadata <- read.table("muestras.txt", sep = ",", header = TRUE)
 row.names(metadata) <- metadata$SampleID 
 metadata <- metadata[match(colnames(data[,-c(1:5)]), metadata$SampleID),]
 #### Replace Group
