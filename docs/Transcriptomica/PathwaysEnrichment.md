@@ -23,34 +23,27 @@ library(pathview)
 columns(org.Sc.sgd.db)
 keytypes(org.Sc.sgd.db)
 
-# Add gene full name
-results$description <-  AnnotationDbi::select(org.Sc.sgd.db, keys = row.names(results),
-                                              columns = 'DESCRIPTION', 
-                                              keytypes = 'ALIAS')
+results_sig <- subset(results, padj < 0.05)
 
-results$description
 
-results$genename <-  AnnotationDbi::select(org.Sc.sgd.db, keys = row.names(results),
+results_sig$genename <-  AnnotationDbi::select(org.Sc.sgd.db, keys = row.names(results_sig),
                                               columns = 'GENENAME', 
                                               keytypes = 'ALIAS')
 
-# Add gene symbol
-results$symbol <- row.names(results)
 
-# Add ENTREZ ID
-results$entrez <- AnnotationDbi::select(org.Sc.sgd.db, keys = row.names(results),
-                                                                columns = 'ENTREZID', 
-                                                                keytypes = 'ALIAS')
-results$ORF <- AnnotationDbi::select(org.Sc.sgd.db, keys = row.names(results),'ORF','ALIAS', multiVals = "list")
+results_sig$symbol <- row.names(results_sig)
 
-head(results$ORF)
-columns(org.Sc.sgd.db)
-keytypes(org.Sc.sgd.db)
-results$GO <- AnnotationDbi::select(org.Sc.sgd.db, keys = row.names(results),"GOALL","ALIAS", multiVals = "list")
+results_sig$entrez <- AnnotationDbi::select(org.Sc.sgd.db, keys = row.names(results_sig),
+                                        columns = 'ENTREZID', 
+                                        keytypes = 'ALIAS')
 
-### Add gene Ontology code
 
-results$GO <- mapIds(org.Sc.sgd.db, keys = row.names(results),'GOALL','ORF')
+results_sig$ORF <- AnnotationDbi::select(org.Sc.sgd.db, keys = row.names(results_sig),'ORF','ALIAS', multiVals = "list")
+
+#results_sig$GO <- AnnotationDbi::select(org.Sc.sgd.db, keys = row.names(results_sig),"GOALL","ALIAS", multiVals = "list")
+
+
+results_sig$GO <- mapIds(org.Sc.sgd.db, keys = row.names(results_sig),'GOALL','ORF')
 
 
 ```
