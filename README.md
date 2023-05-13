@@ -1,7 +1,5 @@
 ## Repositorio para el curso de transcriptomica 
-## CENEBIOL (Congreso Nacional de estudiantes de Biolgia)
-
-Curso Precongreso organizado por el XXII CONEBIOL 
+## Curso Transcriptomica - RNAseq 
 Ponente: Francisco Ascue Orosco
 
 
