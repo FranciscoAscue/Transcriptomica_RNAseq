@@ -20,7 +20,7 @@ Antes de empezar con el curso instale los siguientes programas y paquetes, elija
 ## Instalacion de R y Rstudio para Windows.
 
 
-[Descargar R ](https://cran.r-project.org/bin/windows/base/R-4.2.1-win.exe){: .btn } [Descargar Rstudio ](https://download1.rstudio.org/desktop/windows/RStudio-2022.07.2-576.exe){: .btn } 
+[Descargar R ](https://cran.r-project.org/bin/windows/base/R-4.3.0-win.exe){: .btn } [Descargar Rstudio ](https://download1.rstudio.org/electron/windows/RStudio-2023.03.1-446.exe){: .btn } 
 
 
 ## Instalacion de R y Rstudio para Linux.
