@@ -122,7 +122,9 @@ sudo apt-get install ncbi-entrez-direct bowtie2 sortmerna subread samtools rna-s
 Para la creacion del directorio de trabajo y descarga de los archivos debe ejecutar el siguiente comando en la terminal Linux:
 
 ```bash
-curl -s https://raw.githubusercontent.com/FranciscoAscue/Transcriptomica_conebiol/master/downloadSeq.bash | bash 
+wget -O - https://raw.githubusercontent.com/FranciscoAscue/Transcriptomica_RNAseq/master/downloadSeq.bash | bash
+
+curl -s https://raw.githubusercontent.com/FranciscoAscue//Transcriptomica_RNAseq/master/downloadSeq.bash | bash
 ```
 
 Este script debe crear el siguiente arbol de directorios para la organizacion de los archivos:
