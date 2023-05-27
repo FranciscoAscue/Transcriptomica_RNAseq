@@ -87,11 +87,8 @@ BiocManager::install("pheatmap")
 BiocManager::install("GO.db")
 BiocManager::install("DESeq2")
 BiocManager::install("ggplot2")
-BiocManager::install("pathview")
 BiocManager::install("KEGGgraph")
 BiocManager::install("ape")
-BiocManager::install("ggplot2")
-BiocManager::install("pheatmap")
 BiocManager::install("pathview")
 BiocManager::install("clusterProfiler")
 BiocManager::install("biomaRt")
@@ -124,7 +121,7 @@ Para la creacion del directorio de trabajo y descarga de los archivos debe ejecu
 ```bash
 wget -O - https://raw.githubusercontent.com/FranciscoAscue/Transcriptomica_RNAseq/master/downloadSeq.bash | bash
 
-curl -s https://raw.githubusercontent.com/FranciscoAscue//Transcriptomica_RNAseq/master/downloadSeq.bash | bash
+curl -s https://raw.githubusercontent.com/FranciscoAscue/Transcriptomica_RNAseq/master/downloadSeq.bash | bash
 ```
 
 Este script debe crear el siguiente arbol de directorios para la organizacion de los archivos:
